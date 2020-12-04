@@ -1,0 +1,37 @@
+{
+    "name": "ddx-debug",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "bin": {
+        "ddx-debug": "bin/debug.js"
+    },
+    "scripts": {
+        "build": "tsc -b",
+        "debug": "node ./lib/src/index.js",
+        "lint": "eslint '*/**/*.{js,ts,tsx}' --fix",
+        "lint:ci": "eslint '*/**/*.{js,ts,tsx}'",
+        "prettier": "prettier --write '**/*.{ts,tsx,json,md}' --config .prettierrc",
+        "prettier:ci": "prettier --list-different '**/*.{ts,tsx,json,md}' --config .prettierrc"
+    },
+    "dependencies": {
+        "@0x/subproviders": "^6.2.2",
+        "@0x/utils": "^6.1.1",
+        "@0x/web3-wrapper": "^7.2.10",
+        "@derivadex/contract-wrappers": "^0.0.1",
+        "@types/yargs": "^15.0.11",
+        "typescript": "^4.1.2",
+        "yargs": "^16.1.1"
+    },
+    "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^4.2.0",
+        "@typescript-eslint/parser": "^4.2.0",
+        "eslint": "^6.6.0",
+        "eslint-config-prettier": "^6.12.0",
+        "eslint-plugin-prettier": "^3.1.4",
+        "eslint-plugin-simple-import-sort": "^5.0.3",
+        "husky": "^4.3.0",
+        "lint-staged": "^10.5.1",
+        "prettier": "^1.14.3"
+    }
+}
