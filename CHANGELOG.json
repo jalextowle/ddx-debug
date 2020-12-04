@@ -1,0 +1,10 @@
+[
+    {
+        "version": "1.0.1",
+        "changes": ["Updated \"main\" path in \"package.json\""]
+    },
+    {
+        "version": "1.0.0",
+        "changes": ["Created the \"ddx-debug\" tool"]
+    }
+]
