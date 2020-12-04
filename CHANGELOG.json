@@ -1,5 +1,9 @@
 [
     {
+        "version": "1.0.2",
+        "changes": ["Added the \"lib\" folder to the published output"]
+    },
+    {
         "version": "1.0.1",
         "changes": ["Updated \"main\" path in \"package.json\""]
     },
