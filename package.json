@@ -1,8 +1,8 @@
 {
     "name": "ddx-debug",
     "version": "1.0.0",
-    "main": "index.js",
     "license": "MIT",
+    "main": "./lib/src/index.js",
     "bin": {
         "ddx-debug": "bin/debug.js"
     },
