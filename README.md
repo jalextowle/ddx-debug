@@ -10,3 +10,9 @@ This command can be installed by running the command:
 ```
 yarn global add ddx-debug
 ```
+
+## Build
+
+```
+ddx-debug --config '.env.json'
+```
