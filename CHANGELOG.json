@@ -1,5 +1,12 @@
 [
     {
+        "version": "1.0.3",
+        "changes": [
+            "Improved \"README.md\" documentation",
+            "Add the ability to pass \"from\" and \"rpcUrl\" as CLI args"
+        ]
+    },
+    {
         "version": "1.0.2",
         "changes": ["Added the \"lib\" folder to the published output"]
     },
