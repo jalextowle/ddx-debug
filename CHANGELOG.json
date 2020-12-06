@@ -1,5 +1,9 @@
 [
     {
+        "version": "1.1.0",
+        "changes": ["Added a field for insurance mining statistics"]
+    },
+    {
         "version": "1.0.3",
         "changes": [
             "Improved \"README.md\" documentation",

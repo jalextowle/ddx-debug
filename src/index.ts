@@ -1,7 +1,7 @@
 import { RPCSubprovider, Web3ProviderEngine } from '@0x/subproviders';
 import { addressUtils, providerUtils } from '@0x/utils';
 import { Web3Wrapper } from '@0x/web3-wrapper';
-import { TraderContract } from '@derivadex/contract-wrappers';
+import { InsuranceFundContract, TraderContract } from '@derivadex/contract-wrappers';
 import { readFile } from 'fs';
 import { resolve } from 'path';
 import { promisify } from 'util';
@@ -84,10 +84,20 @@ async function getProviderFromConfigAsync(): Promise<{ provider: Web3ProviderEng
     const trader = new TraderContract(derivadexAddress, provider);
     const traderState = await trader.getTrader(from).callAsync();
 
+    const insuranceFund = new InsuranceFundContract(derivadexAddress, provider);
+    const claimantState = await insuranceFund.getDDXClaimantState(from).callAsync();
+    const totalStakes = await insuranceFund.getCurrentTotalStakes(from).callAsync();
+
     console.log();
-    console.log(`  Trader Account State (${from})`);
-    console.log(`    - ddxBalance:       ${Web3Wrapper.toUnitAmount(traderState.ddxBalance, 18).toString()}`);
-    console.log(`    - ddxWalletAddress: ${traderState.ddxWalletContract}`);
+    console.log(`  DerivaDEX Stats ("${from}")`);
+    console.log();
+    console.log('    DDX Wallet');
+    console.log(`      - DDX Balance:        ${Web3Wrapper.toUnitAmount(traderState.ddxBalance, 18).toString()}`);
+    console.log(`      - DDX Wallet Address: ${traderState.ddxWalletContract}`);
+    console.log();
+    console.log('    Insurance Mining');
+    console.log(`      - Claimed DDX:        ${Web3Wrapper.toUnitAmount(claimantState.claimedDDX, 18)}`);
+    console.log(`      - Total Stake:        ${Web3Wrapper.toUnitAmount(totalStakes[0], 6)}`);
     console.log();
 })()
     .then(() => {
