@@ -86,6 +86,7 @@ async function getProviderFromConfigAsync(): Promise<{ provider: Web3ProviderEng
 
     const insuranceFund = new InsuranceFundContract(derivadexAddress, provider);
     const claimantState = await insuranceFund.getDDXClaimantState(from).callAsync();
+    const unclaimedDDX = await insuranceFund.getUnclaimedDDXRewards(from).callAsync();
     const totalStakes = await insuranceFund.getCurrentTotalStakes(from).callAsync();
 
     console.log();
@@ -97,6 +98,7 @@ async function getProviderFromConfigAsync(): Promise<{ provider: Web3ProviderEng
     console.log();
     console.log('    Insurance Mining');
     console.log(`      - Claimed DDX:        ${Web3Wrapper.toUnitAmount(claimantState.claimedDDX, 18)}`);
+    console.log(`      - Unclaimed DDX:      ${Web3Wrapper.toUnitAmount(unclaimedDDX, 18)}`);
     console.log(`      - Total Stake:        ${Web3Wrapper.toUnitAmount(totalStakes[0], 6)}`);
     console.log();
 })()
